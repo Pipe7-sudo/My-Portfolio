@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, Rocket, Award, Star, MessageSquare, Download, ChevronRight, Play, Quote, Heart, Coffee, Zap, Target } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, Rocket, Award, Star, MessageSquare, Download, ChevronRight, Play, Quote, Heart, Coffee, Zap, Target , Loader2, CheckCircle2} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AP from '../assets/ap.png'
 import APS from '../assets/APS.jpg'
+import STU from '../assets/Stumak.png'
+import LOG from '../assets/log.png'
+import MEN from '../assets/men.png'
+import JOS from '../assets/jos.png'
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +14,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 2500);
@@ -52,6 +57,34 @@ export default function Portfolio() {
     }
   }
   
+// --- Formspree Handler ---
+ const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("SENDING");
+    
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xregpwkk", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus("SUCCESS");
+        form.reset();
+        setTimeout(() => setStatus(""), 5000);
+      } else {
+        setStatus("ERROR");
+      }
+    } catch (error) {
+      setStatus("ERROR");
+    }
+  };
 
   const services = [
     {
@@ -111,83 +144,68 @@ export default function Portfolio() {
   const projects = [
     {
       title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with real-time inventory management and payment integration.',
+      description: 'A full-featured Admin dashboard of an online shopping platform with real-time inventory management.',
       tech: ['HTML5', 'CSS3', 'Bootsrap','Vanilla JS'],
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=300&fit=crop',
-      link: '#',
-      stats: { users: '10k+', rating: '4.8' }
+      image: STU,
+      link: 'https://pipe7-sudo.github.io/stumak-admin/main/overview.html',
+      stats: { rating: '4.8' }
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task management tool with real-time updates and team collaboration features.',
-      tech: ['React', 'Firebase', 'N8N'],
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-      link: '#',
-      stats: { users: '5k+', rating: '4.9' }
+      title: 'Authentication Pages',
+      description: 'Full authentication pages for e-commerce website',
+      tech: ['HTML5', 'BOOTSRAP', 'JS'],
+      image: LOG,
+      link: 'https://pipe7-sudo.github.io/stumak-admin/main/authentication-register.html',
+      stats: { rating: '4.9' }
     },
     {
-      title: 'Portfolio Builder',
-      description: 'A SaaS platform that helps developers create stunning portfolio websites with ease.',
+      title: 'Landing page of mental wellness platform',
+      description: 'A mental wellness landing page inolving hero section, about and contact pages',
       tech: ['React', 'Vercel', 'Tailwind CSS'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
+      image: MEN,
       link: '#',
-      stats: { users: '15k+', rating: '4.7' }
+      stats: {  rating: '5.0' }
     },
     {
-      title: 'Analytics Dashboard',
-      description: 'Real-time analytics dashboard with beautiful data visualizations and insights.',
+      title: 'Cybersecurity Portfolio Website',
+      description: 'A website potfolio of a cyber-security expert',
       tech: ['React', 'Firebase', 'Bootstrap'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
-      link: '#',
-      stats: { users: '8k+', rating: '4.6' }
+      image: JOS,
+      link: 'https://pipe7-sudo.github.io/josphate-Muchiri-port',
+      stats: { rating: '4.6' }
     },
-    {
-      title: 'Social Media Manager',
-      description: 'Schedule and manage social media posts across multiple platforms from one dashboard.',
-      tech: ['React', 'N8N', 'Tailwind CSS'],
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
-      link: '#',
-      stats: { users: '12k+', rating: '4.8' }
-    },
-    {
-      title: 'Fitness Tracking App',
-      description: 'Track workouts, nutrition, and progress with personalized fitness recommendations.',
-      tech: ['React', 'Firebase', 'Vercel'],
-      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop',
-      link: '#',
-      stats: { users: '20k+', rating: '4.9' }
-    }
-  ];
+  ]
 
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'CEO, TechStart',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
-      text: 'Absolutely phenomenal work! The website exceeded our expectations and our conversion rate increased by 150%. Highly recommended!',
-      rating: 5
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Product Manager, InnovateCo',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
-      text: 'Professional, creative, and delivered on time. The attention to detail and user experience was outstanding.',
-      rating: 5
-    },
-    {
-      name: 'Emily Rodriguez',
-      role: 'Founder, GrowthLabs',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
-      text: 'Best developer we\'ve worked with. Clear communication, amazing results, and went above and beyond expectations.',
-      rating: 5
-    }
-  ];
+  // const testimonials = [
+  //   {
+  //     name: 'Sarah Johnson',
+  //     role: 'CEO, TechStart',
+  //     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+  //     text: 'Absolutely phenomenal work! The website exceeded our expectations and our conversion rate increased by 150%. Highly recommended!',
+  //     rating: 5
+  //   },
+  //   {
+  //     name: 'Michael Chen',
+  //     role: 'Product Manager, InnovateCo',
+  //     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+  //     text: 'Professional, creative, and delivered on time. The attention to detail and user experience was outstanding.',
+  //     rating: 5
+  //   },
+  //   {
+  //     name: 'Emily Rodriguez',
+  //     role: 'Founder, GrowthLabs',
+  //     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+  //     text: 'Best developer we\'ve worked with. Clear communication, amazing results, and went above and beyond expectations.',
+  //     rating: 5
+  //   }
+  // ];
 
   const achievements = [
-    { icon: <Award />, value: '5+', label: 'Projects Completed' },
+    { icon: <Award />, value: '4+', label: 'Projects Completed' },
     { icon: <Star />, value: '5+', label: 'Happy Clients' },
-    { icon: <Code />, value: '2+', label: 'Years Experience' }
-  ];
+    { icon: <Code />, value: '2+', label: 'Years Experience' },
+     { icon: <Coffee />, value: '100+', label: 'Cups of Coffee' }
+  ]
 
   const whyMeReasons = [
     {
@@ -269,14 +287,13 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20 text-white min-h-screen relative  overflow-hidden">
+    <div className="w-screen bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20 text-white min-h-screen relative overflow-hidden">
       <div
-        className="pointer-events-none fixed inset-0 z-30 transition duration-300"
+        className="pointer-events-none fixed inset-0 z-0 transition duration-300" 
         style={{
           background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(147, 51, 234, 0.1), transparent 80%)`
         }}
       />
-
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm z-40 border-b border-slate-800 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -292,7 +309,7 @@ export default function Portfolio() {
             </motion.div>
 
             <div className="hidden lg:flex space-x-4 xl:space-x-6 items-center">
-              {['home', 'about', 'services', 'projects', 'testimonials', 'process', 'contact'].map((item) => (
+              {['home', 'about', 'services', 'projects', 'process', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -597,7 +614,7 @@ export default function Portfolio() {
               A showcase of my recent work and successful projects
             </p>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
@@ -647,7 +664,7 @@ export default function Portfolio() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-4">
+      {/* <section id="testimonials" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -693,12 +710,12 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Achievements Section */}
       <section id="achievements" className="py-20 px-4 bg-slate-800/50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={index}
@@ -838,14 +855,14 @@ export default function Portfolio() {
                   <Github className="text-purple-400" />
                   <div>
                     <p className="text-sm text-gray-400">GitHub</p>
-                    <p className="font-semibold">@yourusername</p>
+                    <p className="font-semibold">Pipe7-sudo</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-4 bg-slate-800 rounded-lg border border-slate-700">
                   <Linkedin className="text-purple-400" />
                   <div>
                     <p className="text-sm text-gray-400">LinkedIn</p>
-                    <p className="font-semibold">/in/yourprofile</p>
+                    <p className="font-semibold">Ebenezer Akinmusire</p>
                   </div>
                 </div>
               </div>
@@ -856,43 +873,52 @@ export default function Portfolio() {
               viewport={{ once: true }}
             >
             <form
-            action="https://formspree.io/f/xregpwkk"
+            onSubmit={handleSubmit}
              method="POST"
+             className="bg-slate-800 p-8 rounded-lg border border-slate-700"
             >
-              <div className="bg-slate-800 p-8 rounded-lg border border-slate-700">
                 <div className="space-y-6">
+                {/* Honeypot to prevent spam */}
+                <input type="text" name="_gotcha" style={{ display: 'none' }} />
                   <div>
-                    <label className="block text-sm font-semibold mb-2">Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors required"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Email</label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors required"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Message</label>
-                    <textarea
-                      rows="5"
-                      className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors resize-none required"
-                      placeholder="Tell me about your project..."
-                    />
-                  </div>
-                  <button 
-                  type='submit'
-                  className="w-full px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all flex items-center justify-center gap-2">
-                    Send Message <Mail size={20} />
-                  </button>
+                  <label className="block text-sm font-semibold mb-2 text-gray-300">Name</label>
+                  <input
+                    required
+                    name="name" 
+                    type="text"
+                    className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-white"
+                    placeholder="Your Name"
+                  />
                 </div>
-              </div>
-               </form>
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-300">Email Address</label>
+                  <input
+                    required
+                    name="email" 
+                    type="email"
+                    className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-white"
+                    placeholder="pipeloluwa@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-300">Your Message</label>
+                  <textarea
+                    required
+                    name="message" 
+                    rows="5"
+                    className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:border-purple-500 focus:outline-none transition-colors resize-none text-white"
+                    placeholder="How can I help you?"
+                  />
+                </div>
+
+              <button disabled={status === "SENDING"} type="submit" className="w-full py-4 bg-purple-600 rounded-lg font-bold hover:bg-purple-700 transition-all flex items-center justify-center gap-2 disabled:opacity-50">
+                  {status === "SENDING" ? <><Loader2 className="animate-spin" size={20} /> Sending...</> : status === "SUCCESS" ? "Message Sent!" : "Send Message"}
+                </button>
+
+                {status === "SUCCESS" && <p className="text-green-400 text-center text-sm">Thank you! Your message has been sent successfully.</p>}
+                {status === "ERROR" && <p className="text-red-400 text-center text-sm">Oops! Something went wrong. Please try again.</p>}
+                  </div>
+                 </form>
             </motion.div>
           </div>
         </div>
@@ -908,13 +934,13 @@ export default function Portfolio() {
               </h3>
               <p className="text-gray-400 mb-4">Building the web, one project at a time.</p>
               <div className="flex gap-4">
-                <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <a href="https://github.com/Pipe7-sudo" className="text-gray-400 hover:text-purple-400 transition-colors">
                   <Github size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <a href="https://www.linkedin.com/in/ebenezer-akinmusire-01b473369?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-gray-400 hover:text-purple-400 transition-colors">
                   <Linkedin size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <a href="mailto:pipeloluwaakinmusire@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">
                   <Mail size={24} />
                 </a>
               </div>
@@ -927,7 +953,7 @@ export default function Portfolio() {
           </div>
           <div className="pt-8 border-t border-slate-700 text-center">
             <p className="text-gray-400 flex items-center justify-center gap-2">
-             &copy; 2025 Your Name. All rights reserved.
+             &copy; 2025 Ebenezer Akinmusire. All rights reserved.
             </p>
           </div>
         </div>
