@@ -163,7 +163,7 @@ export default function Portfolio() {
       description: 'A mental wellness landing page inolving hero section, about and contact pages',
       tech: ['React', 'Vercel', 'Tailwind CSS'],
       image: MEN,
-      link: '#',
+      link: 'https://menteax-9srmky85h-ebenezer-akinmusires-projects.vercel.app',
       stats: {  rating: '5.0' }
     },
     {
