@@ -7,6 +7,9 @@ import STU from '../assets/Stumak.png'
 import LOG from '../assets/log.png'
 import MEN from '../assets/men.png'
 import JOS from '../assets/jos.png'
+import PULSE from '../assets/pulsegrid.png'
+import CHUKS from '../assets/chuks_kitchen.png'
+import TALENT from '../assets/talent_flow.png'
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -117,13 +120,14 @@ export default function Portfolio() {
     { name: 'HTML5', level: 95, category: 'Frontend' },
     { name: 'CSS3', level: 90, category: 'Frontend' },
     { name: 'JavaScript', level: 88, category: 'Frontend' },
-    { name: 'React', level: 85, category: 'Frontend' },
+    { name: 'React', level: 100, category: 'Frontend' },
+    { name: 'Node JS', level: 97, category: 'Frontend/Backend' },
     { name: 'Tailwind CSS', level: 90, category: 'Frontend' },
     { name: 'Bootstrap', level: 85, category: 'Frontend' },
     { name: 'Git & GitHub', level: 87, category: 'Tools' },
-    { name: 'Firebase', level: 80, category: 'Backend' },
-    { name: 'N8N', level: 75, category: 'Automation' },
-    { name: 'Vercel', level: 82, category: 'Deployment' }
+    { name: 'Firebase', level: 95, category: 'Backend' },
+    { name: 'N8N', level: 95, category: 'Automation' },
+    { name: 'Vercel', level: 100, category: 'Deployment' }
   ];
 
   const experiences = [
@@ -157,7 +161,7 @@ export default function Portfolio() {
       image: LOG,
       link: 'https://pipe7-sudo.github.io/stumak-admin/main/authentication-register.html',
       stats: { rating: '4.9' }
-    },
+    },  
     {
       title: 'Landing page of mental wellness platform',
       description: 'A mental wellness landing page inolving hero section, about and contact pages',
@@ -174,6 +178,31 @@ export default function Portfolio() {
       link: 'https://pipe7-sudo.github.io/josphate-Muchiri-port',
       stats: { rating: '4.6' }
     },
+     {
+      title: 'Talent flow',
+      description: 'An advanced learning management system',
+      tech: ['React', 'tailwind'],
+      image: TALENT,
+      link: 'https://team_bravo_frontend_march.vercel.app',
+      stats: { rating: '5.0' }
+    },
+    {
+      title: 'Chuks Kitchen',
+      description: 'Food ordering system for modern restaurant',
+      tech: ['React', 'tailwind'],
+      image: CHUKS,
+      link: 'https://chuks-kitchen-murex.vercel.app',
+      stats: { rating: '5.0' }
+    },
+      {
+      title: 'PulseGrid',
+      description: 'AI-powered emergency logistics connecting citizens and hospitals',
+      tech: ['Next js', 'Node js', 'Twilio api'],
+      image: PULSE,
+      link: 'https://pulse-grid-frontend.vercel.app/',
+      stats: { rating: '5.0' }
+    },
+
   ]
 
   // const testimonials = [
@@ -505,8 +534,6 @@ export default function Portfolio() {
                 <p className="text-gray-300 font-semibold mb-2">{exp.company}</p>
                 <p className="text-gray-400 mb-4">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
-        
-                  ))}
                 </div>
               </motion.div>
             ))}
