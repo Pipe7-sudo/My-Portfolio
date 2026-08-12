@@ -146,19 +146,19 @@ export default function Portfolio() {
     {
       title: 'CTO/Lead Developer, Founder',
       company: 'Lyndron-x',
-      period: '2024 - Present',
+      period: '2025 - Present',
       description: 'Leading technical strategy, architecture, and development.'
     },
     {
       title: 'Software and AI Engineer',
       company: 'Coursepass',
-      period: '2024 - Present',
+      period: '2026 - Present',
       description: 'Developing AI-powered solutions and software engineering tasks.'
     },
     {
       title: 'Frontend Developer',
       company: 'GDG Lasustech',
-      period: '2024 - Present',
+      period: '2024 - 2025',
       description: ' frontend development for e-commerce web application'
     },
     {
@@ -170,22 +170,6 @@ export default function Portfolio() {
   ];
 
   const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured Admin dashboard of an online shopping platform with real-time inventory management.',
-      tech: ['HTML5', 'CSS3', 'Bootsrap','Vanilla JS'],
-      image: STU,
-      link: 'https://pipe7-sudo.github.io/stumak-admin/main/overview.html',
-      stats: { rating: '4.8' }
-    },
-    {
-      title: 'Authentication Pages',
-      description: 'Full authentication pages for e-commerce website',
-      tech: ['HTML5', 'BOOTSRAP', 'JS'],
-      image: LOG,
-      link: 'https://pipe7-sudo.github.io/stumak-admin/main/authentication-register.html',
-      stats: { rating: '4.9' }
-    },  
     {
       title: 'Menteax',
       description: 'AI powered mental, personal wellness and productivity app',
@@ -203,19 +187,19 @@ export default function Portfolio() {
       stats: { rating: '5.0' }
     },
     {
-      title: 'Cybersecurity Portfolio Website',
-      description: 'A website potfolio of a cyber-security expert',
-      tech: ['React', 'Firebase', 'Bootstrap'],
-      image: JOS,
-      link: 'https://pipe7-sudo.github.io/josphate-Muchiri-port',
-      stats: { rating: '4.6' }
-    },
-     {
       title: 'Talent flow',
       description: 'An advanced learning management system',
       tech: ['React', 'tailwind'],
       image: TALENT,
       link: 'https://team_bravo_frontend_march.vercel.app',
+      stats: { rating: '5.0' }
+    },
+    {
+      title: 'PulseGrid',
+      description: 'AI-powered emergency logistics connecting citizens and hospitals',
+      tech: ['Next js', 'Node js', 'Twilio api'],
+      image: PULSE,
+      link: 'https://pulse-grid-frontend.vercel.app/',
       stats: { rating: '5.0' }
     },
     {
@@ -226,15 +210,30 @@ export default function Portfolio() {
       link: 'https://chuks-kitchen-murex.vercel.app',
       stats: { rating: '5.0' }
     },
-      {
-      title: 'PulseGrid',
-      description: 'AI-powered emergency logistics connecting citizens and hospitals',
-      tech: ['Next js', 'Node js', 'Twilio api'],
-      image: PULSE,
-      link: 'https://pulse-grid-frontend.vercel.app/',
-      stats: { rating: '5.0' }
+    {
+      title: 'E-Commerce Platform',
+      description: 'A full-featured Admin dashboard of an online shopping platform with real-time inventory management.',
+      tech: ['HTML5', 'CSS3', 'Bootsrap','Vanilla JS'],
+      image: STU,
+      link: 'https://pipe7-sudo.github.io/stumak-admin/main/overview.html',
+      stats: { rating: '4.8' }
     },
-
+    {
+      title: 'Authentication Pages',
+      description: 'Full authentication pages for e-commerce website',
+      tech: ['HTML5', 'BOOTSRAP', 'JS'],
+      image: LOG,
+      link: 'https://pipe7-sudo.github.io/stumak-admin/main/authentication-register.html',
+      stats: { rating: '4.9' }
+    },  
+    {
+      title: 'Cybersecurity Portfolio Website',
+      description: 'A website potfolio of a cyber-security expert',
+      tech: ['React', 'Firebase', 'Bootstrap'],
+      image: JOS,
+      link: 'https://pipe7-sudo.github.io/josphate-Muchiri-port',
+      stats: { rating: '4.6' }
+    }
   ]
 
   // const testimonials = [
