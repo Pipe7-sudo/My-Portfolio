@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, Rocket, Award, Star, MessageSquare, Download, ChevronRight, Play, Quote, Heart, Coffee, Zap, Target , Loader2, CheckCircle2} from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Briefcase, User, Rocket, Award, Star, MessageSquare, Download, ChevronRight, Play, Quote, Heart, Coffee, Zap, Target , Loader2, CheckCircle2, Smartphone} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AP from '../assets/ap.png'
 import APS from '../assets/APS.jpg'
@@ -10,6 +10,8 @@ import JOS from '../assets/jos.png'
 import PULSE from '../assets/pulsegrid.png'
 import CHUKS from '../assets/chuks_kitchen.png'
 import TALENT from '../assets/talent_flow.png'
+import MENTEAX_IMG from '../assets/MENTEAX.png'
+import GOSPEL_IMG from '../assets/GOSPEL.png'
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,6 +105,12 @@ export default function Portfolio() {
       features: ['Performance optimization', 'AI integration', 'Cloud Deployment']
     },
     {
+      icon: <Smartphone className="w-8 h-8" />,
+      title: 'Mobile App Development',
+      description: 'Cross-platform mobile applications built with React Native for iOS and Android.',
+      features: ['Cross-platform', 'Native Performance', 'Custom UI/UX']
+    },
+    {
       icon: <Rocket className="w-8 h-8" />,
       title: 'N8N AI Automation',
       description: 'Creation of complex workflows powered by AI to automate activities',
@@ -120,7 +128,10 @@ export default function Portfolio() {
     { name: 'HTML5', level: 95, category: 'Frontend' },
     { name: 'CSS3', level: 90, category: 'Frontend' },
     { name: 'JavaScript', level: 88, category: 'Frontend' },
+    { name: 'TypeScript', level: 85, category: 'Frontend/Backend' },
     { name: 'React', level: 100, category: 'Frontend' },
+    { name: 'Next JS', level: 90, category: 'Frontend' },
+    { name: 'React Native', level: 85, category: 'Mobile' },
     { name: 'Node JS', level: 97, category: 'Frontend/Backend' },
     { name: 'Tailwind CSS', level: 90, category: 'Frontend' },
     { name: 'Bootstrap', level: 85, category: 'Frontend' },
@@ -131,6 +142,18 @@ export default function Portfolio() {
   ];
 
   const experiences = [
+    {
+      title: 'CTO/Lead Developer, Founder',
+      company: 'Lyndron-x',
+      period: '2024 - Present',
+      description: 'Leading technical strategy, architecture, and development.'
+    },
+    {
+      title: 'Software and AI Engineer',
+      company: 'Coursepass',
+      period: '2024 - Present',
+      description: 'Developing AI-powered solutions and software engineering tasks.'
+    },
     {
       title: 'Frontend Developer',
       company: 'GDG Lasustech',
@@ -163,12 +186,20 @@ export default function Portfolio() {
       stats: { rating: '4.9' }
     },  
     {
-      title: 'Landing page of mental wellness platform',
-      description: 'A mental wellness landing page inolving hero section, about and contact pages',
-      tech: ['React', 'Vercel', 'Tailwind CSS'],
-      image: MEN,
-      link: 'https://menteax-9srmky85h-ebenezer-akinmusires-projects.vercel.app',
+      title: 'Menteax',
+      description: 'AI powered mental, personal wellness and productivity app',
+      tech: [],
+      image: MENTEAX_IMG,
+      link: 'https://menteax.com.ng',
       stats: {  rating: '5.0' }
+    },
+    {
+      title: 'Gospel Satellite',
+      description: 'A security management system for smart tracking of vehicles and smart entry',
+      tech: [],
+      image: GOSPEL_IMG,
+      link: 'https://securityrccg.netlify.app/',
+      stats: { rating: '5.0' }
     },
     {
       title: 'Cybersecurity Portfolio Website',
