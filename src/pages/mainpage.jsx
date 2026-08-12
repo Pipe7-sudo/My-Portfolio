@@ -12,6 +12,7 @@ import CHUKS from '../assets/chuks_kitchen.png'
 import TALENT from '../assets/talent_flow.png'
 import MENTEAX_IMG from '../assets/MENTEAX.png'
 import GOSPEL_IMG from '../assets/GOSPEL.png'
+import MY_CV from '../assets/Ebenezer_Akinmusire_Cv.pdf'
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -482,9 +483,13 @@ export default function Portfolio() {
               >
                 <Play size={20} /> View Work
               </button>
-              <button className="px-8 py-3 border border-slate-700 rounded-full font-semibold hover:bg-slate-800 transition-all flex items-center gap-2">
+              <a 
+                href={MY_CV} 
+                download="Ebenezer_Akinmusire_Cv.pdf" 
+                className="px-8 py-3 border border-slate-700 rounded-full font-semibold hover:bg-slate-800 transition-all flex items-center gap-2"
+              >
                 <Download size={20} /> Resume
-              </button>
+              </a>
             </div>
             <div className="flex gap-6 mt-8">
               <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
