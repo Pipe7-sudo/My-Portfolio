@@ -191,7 +191,7 @@ export default function Portfolio() {
       description: 'An advanced learning management system',
       tech: ['React', 'tailwind'],
       image: TALENT,
-      link: 'https://team_bravo_frontend_march.vercel.app',
+      link: 'https://team-bravo-frontend-march.vercel.app/',
       stats: { rating: '5.0' }
     },
     {
